@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>할 일 목록 관리 프로젝트</title>
+</head>
+<body>
+  <a href="{% url "todos:main" %}">[MAIN]</a>
+  <a href="{% url "todos:create" %}">[CREATE]</a>
+  {% comment %} 
+    이걸 만드는 이유?
+    - 모든 html에서 공통으로 사용할 영역을 이곳에서 작성
+    - 예를 들어 bootstrap CDN이나, 페이지 전체를 아우르는 theme를 설정한 css, js, import
+    nav bar와 같이 모든 페이지에서 다 보여줘야 할 영역
+  
+    이 base.html을 상속받으면
+    ex) articles/index.html에는 전체 게시글 목록을 보여줘야 하는데
+    ex) articles/create.html에는 게시글 생성 페이지를 보여줘야 하는데
+    그걸 위한 영역을 지정하자
+    {% endcomment %}
+
+    {% block content %}
+      {% comment %} 여기에 작성한 내용은 각자마다 서로 다른 고유 영역으로 표기됨 {% endcomment %}
+    {% endblock content %}
+    
+    {% block aside %}
+    {% endblock aside %}
+
+    {% block footer %}
+    {% endblock footer %}
+</body>
+</html>
